@@ -21,8 +21,8 @@ Training a GPT-style transformer from scratch on [FineWeb](https://huggingface.c
 
 ## Training
 
-- **Dataset:** FineWeb (streamed, no local storage required)
-- **Tokenizer:** Custom 50k-vocab BPE trained on ~2GB of FineWeb via the `tokenizers` library
+- **Dataset:** FineWeb (streamed, since the actual dataset is something insane like 50TB)
+- **Tokenizer:** Custom 50k-vocab BPE trained on ~2GB of FineWeb via the `tokenizers` library (UNK rate should end up around 0? at least it did for me)
 - **Optimizer:** AdamW (fused, weight decay on 2D+ params only)
 - **Schedule:** Cosine decay from 3e-4 to 3e-5 with 2000-step linear warmup
 - **Effective batch size:** ~524k tokens (micro-batch 8 x grad accum 32 x 2048 seq len)

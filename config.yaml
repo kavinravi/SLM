@@ -26,7 +26,7 @@ training:
   eval_steps: 50
   save_interval: 2000
   checkpoint_dir: checkpoints
-  resume_from: checkpoints/best.pt
+  resume_from: checkpoints/step_10000.pt  # use checkpoints/best.pt for normal resuming (no optimizer state)
 
 tokenizer:
   vocab_size: 50000

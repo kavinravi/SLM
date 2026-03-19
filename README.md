@@ -67,3 +67,4 @@ pip install -r requirements.txt
 ## Work for the Future
 - Retrain the model using second order optimizers if possible (e.g. Gauss-Newton, SOAP, SHAMPOO, etc.) if I can find ones compatible with the particular pytorch version I need for CUDA 12.8
 - Add an argument in train.ipynb that automatically clears the output in training cells every once in awhile so I don't have to worry about training crashes
+- Add some form of QK-norm, since I think that was the problem that was causing gradient & loss explosions and leading to having to restart training 6 times before 20k steps (:skull:)

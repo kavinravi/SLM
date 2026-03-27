@@ -72,38 +72,29 @@ else:
 print("Tokenizer ready.")
 
 # ── Data Pipeline ──────────────────────────────────────────────────────────────
-class PackedDataset(IterableDataset):
-    def __init__(self, tokenizer, config, seed=42):
-        self.tokenizer = tokenizer
-        self.seq_len = config['model']['context_length']
-        self.data_cfg = config['data']
-        self.eos_id = tokenizer.token_to_id('<eos>')
-        self.seed = seed
+import numpy as np
+from torch.utils.data import Dataset
 
-    def __iter__(self):
-        epoch = 0
-        while True:
-            ds = load_dataset(
-                self.data_cfg['dataset'],
-                name=self.data_cfg.get('name'),
-                split=self.data_cfg['split'],
-                streaming=True,
-            )
-            ds = ds.shuffle(seed=self.seed + epoch, buffer_size=10_000)
-            epoch += 1
-            buffer = []
-            for doc in ds:
-                text = doc[self.data_cfg['text_field']]
-                if len(text) < self.data_cfg['min_doc_length']:
-                    continue
-                buffer.extend(self.tokenizer.encode(text).ids + [self.eos_id])
-                while len(buffer) >= self.seq_len + 1:
-                    chunk = buffer[:self.seq_len + 1]
-                    buffer = buffer[self.seq_len + 1:]
-                    yield (
-                        torch.tensor(chunk[:-1], dtype=torch.long),
-                        torch.tensor(chunk[1:], dtype=torch.long),
-                    )
+PRETOKENIZED_PATH = "data/train_tokens.npy"
+
+class PreTokenizedDataset(Dataset):
+    def __init__(self, path, seq_len, num_tokens=None):
+        self.seq_len = seq_len
+        self.data = np.memmap(path, dtype=np.uint16, mode='r')
+        if num_tokens:
+            self.data = self.data[:num_tokens]
+        self.n_sequences = (len(self.data) - 1) // seq_len
+        print(f"PreTokenizedDataset: {len(self.data)/1e9:.2f}B tokens, {self.n_sequences:,} sequences")
+
+    def __len__(self):
+        return self.n_sequences
+
+    def __getitem__(self, idx):
+        start = idx * self.seq_len
+        chunk = self.data[start:start + self.seq_len + 1].astype(np.int64)
+        x = torch.from_numpy(chunk[:-1].copy())
+        y = torch.from_numpy(chunk[1:].copy())
+        return x, y
 
 # ── Model ──────────────────────────────────────────────────────────────────────
 class CausalSelfAttention(nn.Module):
@@ -262,9 +253,17 @@ if tcfg.get('resume_from'):
 print("Setting up data loaders...")
 eval_batches = None
 
-print("Creating train DataLoader...")
-train_ds = PackedDataset(tokenizer, config, seed=config['seed'] + start_step)
-train_loader = DataLoader(train_ds, batch_size=tcfg['micro_batch_size'], drop_last=True)
+print(f"Loading pre-tokenized data from {PRETOKENIZED_PATH}...")
+meta = np.load("data/meta.npy", allow_pickle=True).item()
+print(f"Meta: {meta}")
+train_ds = PreTokenizedDataset(PRETOKENIZED_PATH, mcfg['context_length'], num_tokens=meta['num_tokens'])
+
+num_workers = tcfg.get('num_workers', min(8, os.cpu_count() or 4))
+print(f"DataLoader workers: {num_workers}")
+train_loader = DataLoader(
+    train_ds, batch_size=tcfg['micro_batch_size'], shuffle=True, drop_last=True,
+    num_workers=num_workers, pin_memory=True, persistent_workers=num_workers > 0,
+)
 data_iter = iter(train_loader)
 
 # ── W&B ────────────────────────────────────────────────────────────────────────
@@ -329,7 +328,7 @@ for step in range(start_step, tcfg['max_steps']):
 
     if loss_ema is None:
         loss_ema = accum_loss
-    if accum_loss > spike_factor * loss_ema:
+    if step >= 1000 and accum_loss > spike_factor * loss_ema:
         consecutive_skips += 1
         if consecutive_skips <= max_consecutive_skips:
             optimizer.zero_grad()

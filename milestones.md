@@ -281,3 +281,71 @@ Once upon a time came a man named Adam, who was the first to live, and he said t
 “There was a time when it was true, when a man of Israel came to be born of the blood of the covenant, which is the only covenant in the sight of the Lord, that the firstborn of the nations should be named Adam his son. He was the firstborn of every seed of Abraham, of the seed of Israel, who was named Adam his son.” Genesis 20:14
 “And the LORD said to Abram, ‘Leave your sons, your daughters, and your sons’ offspring, and give them to your wife, your daughters’ sons.’ And the LORD said to Abram, ‘Leave your sons, your daughters, and your sons’ offspring, and give them to your wife, your daughters’ sons.’ In the dream of Abraham, the LORD
 ```
+
+## @ 30000 Steps:
+
+### Prompt:
+In a distant galaxy, 
+
+### Response:
+```
+In a distant galaxy, in the realm of humanity, it is a choice between the forces of good and evil. The forces of good are called the rulers, and the forces of evil are called the servants. These are the two major ideas that can guide our day to the best of our ability.
+“The forces of good are called the good. The forces of evil are called the servants. These are the two major ideas that can guide our day to the best of our ability.”
+As we have explored briefly in the previous posts, the first two are in fact the two major forces that are in play in the world today, whether we realize it or not. The forces of good are simply good, and the forces of evil are merely good. The good are indeed the forces of good but not the forces of evil. The forces of good are merely good, and the forces of evil are merely good. The good is the forces of good and the forces of evil are merely good.
+“The forces of
+```
+
+### Prompt:
+def fibonacci(n):
+
+### Response:
+```
+def fibonacci(n): A bony mineral that can be found on both sides of the tongue.
+In this particular case, I have been using the following formulas to determine the appropriate amount of “skin” per side. The first formula calculates the actual amount of “skin” per side. The second formula calculates the actual amount of “loose” per side. The third formula calculates the actual amount of “swelling” per side. The fourth formula calculates the actual amount of “pores” per side. The fifth formula calculates the actual amount of “skeleton” per side. The sixth formula calculates the actual amount of “skin” per side. I’ve been using these formulas to calculate the amount of “skin” that is required to produce the correct amount of “skin” per side. The fourth formula calculates the actual amount of “skin” that is necessary to produce the correct amount of “skin.” This formula is used in combination with the last formula to calculate the amount of “invis
+```
+
+### Prompt:
+Once upon a time 
+
+### Response:
+```
+Once upon a time, when I wasn't sleeping, I was walking under a bridge and I suddenly turned around so I couldn't see what was going on and I suddenly saw a pair of black eyes staring at me up ahead and I almost froze.
+I knew, at that moment, that there were two other people on the bridge at the same time as I was in a state of confusion and I froze and there were a couple of people walking past my car when I suddenly thought, "What the heck are those two people walking down here?" I turned around and saw that they were both walking past me and I saw that one of them was wearing a hood.
+So I said, "What are they wearing?" and then I said, "Yeah, they're wearing a hood." The last thing I remember thinking was that the hood was on my head and that was what it was. It was so confusing and I couldn't really think straight so I decided that it would be best if I just stayed in
+```
+
+## @ 40000 Steps:
+
+### Prompt:
+In a distant galaxy,
+
+### Response:
+```
+In a distant galaxy, a single human who had been rescued from a space colony on the moon has been put into the care of another human. The woman's mother has an infant on board, and the mother's lover has been sent to the other side of the galaxy. But this time, the father's lover has been transported to space. To get to the girl, the mother had to travel to the other side. She's been chosen to be a human surrogate. What happens to the baby in the story? Let's take a look at the plot, shall we?
+Hidden in the Stars
+The plot itself is simple: A space station has been transported to orbit around the earth, and it has been placed in the care of a woman whose father has been sent to the other side. The woman has an infant on board, and the mother's lover has been sent to the other side. But this time, the father's lover has been transported to space. To get to the girl, the mother
+```
+
+### Prompt:
+def fibonacci(n):
+
+### Response:
+```
+def fibonacci(n):1.845.891,1.767.429,1.778.472.397,1.464.744.913
+Eigenmann's rule can be found in the following textbooks:
+- V. L. Kull and S. M. R. M. Kull, "The Ptolemaic equation of the second law of thermodynamics," SIAM Journal on Applied Math and Physics, vol. 5, no. 1, pp. 374–384, 1980.
+- E. L. V. L. Kull, "The second law of thermodynamics" in Biographical Dictionary of Science, Vol. 16, by W. H. J. L. Swartz and J. J. W. Swartz, New York: Macmillan and Co., 1912.
+- E. L. V. L. Kull and S. M. R. M. K
+```
+
+### Prompt:
+Once upon a time
+
+### Response:
+```
+Once upon a time, when a simple and straightforward problem took on a different dimension in the form of a computer game. Today, games are the cornerstone of our lives, and they have never looked more vibrant. Whether it’s a game of cricket, or sports-themed games like poker or chess, we know that games are the key to our lives and it is the reason that they are the most popular entertainment choices of the day.
+In 2019, we are going to take a look at some of the best games on the market and what makes them so special. We will also look at some of the best games in the world and what makes them stand out from the rest.
+Let’s get started.
+Top 10 Games On The Market
+A little over a decade ago, a game called Bingo was in its infancy. Bingo had been in existence for only a couple of years before that, as a simple game of skill. The idea was that you would roll the dice and create the winning
+```

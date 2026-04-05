@@ -4,5 +4,6 @@ wandb/
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
+.env
 plan.md
 runpod.txt

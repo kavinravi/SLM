@@ -12,8 +12,8 @@ transformers>=4.51.0
 datasets>=3.5.0
 tokenizers>=0.21.0
 
-# Experiment tracking
-wandb>=0.19.0
+# Experiment tracking (free, local-first, syncs to a HF Space for remote viewing)
+trackio
 
 # Config
 pyyaml>=6.0.2

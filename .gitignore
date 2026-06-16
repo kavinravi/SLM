@@ -1,9 +1,14 @@
-checkpoints/
+checkpoints/*
+!checkpoints/.gitkeep
 tokenizer/
+data/*
+!data/.gitkeep
 wandb/
+.trackio/
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
 .env
-plan.md
-runpod.txt
+
+# local design / working docs (kept local, never committed)
+docs/

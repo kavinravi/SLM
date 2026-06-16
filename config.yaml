@@ -12,7 +12,7 @@ training:
   peak_lr: 2.0e-4
   min_lr: 2.0e-5
   warmup_steps: 2000
-  max_steps: 100000
+  max_steps: 500000
   micro_batch_size: 8
   gradient_accumulation_steps: 32
   gradient_clip: 1.0
@@ -26,7 +26,7 @@ training:
   eval_steps: 50
   save_interval: 2000
   checkpoint_dir: checkpoints
-  resume_from: checkpoints/step_10000.pt  # use checkpoints/best.pt for normal resuming (no optimizer state)
+  resume_from: null  # fresh run; set to a checkpoint path (e.g. checkpoints/step_XXXX.pt) to resume
 
 tokenizer:
   vocab_size: 50000
@@ -41,6 +41,8 @@ data:
   text_field: text
   min_doc_length: 100
 
-wandb:
-  project: slm-fineweb
+tracking:
+  backend: trackio           # free, local-first; syncs to a HF Space for remote viewing
+  project: slm-synthetic
+  space_id: null             # set to "<hf-username>/<space-name>" to view the dashboard remotely
   enabled: true
